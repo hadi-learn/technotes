@@ -6,20 +6,20 @@ const Public = () => {
 
     <section className="public">
       <header>
-        <h1>Welcome to <span className="nowrap">Dan D. Repairs!</span></h1>
+        <h1>Selamat Datang di <span className="nowrap">Jog-Tron Repairs</span></h1>
       </header>
       <main className="public__main">
         <p>
-          Located in Beautiful Downtown Jogja City, Dan D. Repairs provides a trained staff ready to meet your tech repair needs.
+          Berpusat di kota Yogyakarta dengan teknisi ahli yang handal dan berpengalaman dapat memenuhi kebutuhan reparasi alat elektronik Anda
         </p>
         <address className="public__addr">
-          Dan D. Repairs<br />
-          Jogja Main Road<br />
-          Jogja City, DIY 12345<br />
+          JogTron Repairs<br />
+          Jalan Jend. Sudirman<br />
+          Kota Yogyakarta, DI. Yogyakarta 12345<br />
           <a href="tel:+622741234444">(0274) 123-4444</a>
         </address>
         <br />
-        <p>Owner: Haa Dhee</p>
+        <p>Pemilik: Haa Dhee</p>
       </main>
       <footer>
         <Link to="/login">Employee Login</Link>

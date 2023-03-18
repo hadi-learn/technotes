@@ -3,10 +3,13 @@ import { useUpdateNoteMutation, useDeleteNoteMutation } from "./notesApiSlice"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import useAuth from "../../hooks/useAuth"
 
 const TITLE_REGEX = /^[A-z ]{3,50}$/
 
 const EditNoteForm = ({ note, users }) => {
+
+  const { isManager, isAdmin } = useAuth()
 
   const [updateNote, {
     isLoading,
@@ -82,6 +85,18 @@ const EditNoteForm = ({ note, users }) => {
 
   const errContent = (error?.data?.message || delError?.data?.message) ?? ''
 
+  const deleteButton = (
+    (isAdmin | isManager)
+    ? <button
+        className="icon-button"
+        title="Delete"
+        onClick={onDeleteNoteClicked}
+      >
+        <FontAwesomeIcon icon={faTrashCan} />
+      </button>
+    : null
+  )
+
   const content = (
 
     <>
@@ -100,18 +115,12 @@ const EditNoteForm = ({ note, users }) => {
             >
               <FontAwesomeIcon icon={faSave} />
             </button>
-            <button
-              className="icon-button"
-              title="Delete"
-              onClick={onDeleteNoteClicked}
-            >
-              <FontAwesomeIcon icon={faTrashCan} />
-            </button>
+            {deleteButton}
           </div>
         </div>
 
         <label className="form__label" htmlFor="note-title">
-          Title: <span className="nowrap">[3-50 letters]</span>
+          Judul Pekerjaan: <span className="nowrap">[3-50 huruf]</span>
         </label>
         <input 
           id="note-title"
@@ -124,7 +133,7 @@ const EditNoteForm = ({ note, users }) => {
         />
 
         <label className="form__label" htmlFor="note-text">
-          Content:
+          Detail Pekerjaan:
         </label>
         <textarea 
           id="note-text"
@@ -137,7 +146,7 @@ const EditNoteForm = ({ note, users }) => {
         <div className="form__row">
           <div className="form__divider">
             <label className="form_label form__checkbox-container" htmlFor="note-completed">
-            COMPLETED:
+            Selesai..?:
             <input 
               id="note-completed"
               className="form__checkbox"
@@ -149,7 +158,7 @@ const EditNoteForm = ({ note, users }) => {
             </label>
 
             <label className="form__label form__checkbox-container" htmlFor="note-username">
-              ASSIGNED USER:
+              Pilih Teknisi:
             </label>
             <select
               id="note-username"

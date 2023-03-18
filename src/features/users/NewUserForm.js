@@ -104,7 +104,7 @@ const NewUserForm = () => {
         <label
           className="form__label" htmlFor="username"
         >
-          Username: <span className="nowrap">[3-20 letters]</span>
+          USERNAME: <span className="nowrap">[3-20 huruf]</span>
         </label>
         <input 
           id="username"
@@ -120,7 +120,7 @@ const NewUserForm = () => {
           className="form__label"
           htmlFor="password"
         >
-          Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span>
+          PASSWORD: <span className="nowrap">[4-12 huruf termasuk !@#$%]</span>
         </label>
         <input 
           id="password"
@@ -135,7 +135,7 @@ const NewUserForm = () => {
           className="form__label"
           htmlFor="roles"
         >
-          ASSIGNED ROLES:
+          PILIHAN ROLES:
         </label>
         <select
           id="roles"

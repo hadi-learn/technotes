@@ -5,12 +5,15 @@ import { useDispatch } from "react-redux"
 import { setCredentials } from "./authSlice"
 import { useLoginMutation } from "./authApiSlice"
 
+import usePersist from "../../hooks/usePersist"
+
 const Login = () => {
   const userRef = useRef()
   const errRef = useRef()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errMsg, setErrMsg] = useState('')
+  const [persist, setPersist] = usePersist()
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -27,6 +30,7 @@ const Login = () => {
 
   const handleUserInput = (e) => setUsername(e.target.value)
   const handlePwdInput = (e) => setPassword(e.target.value)
+  const handleToggle = () => setPersist(prev => !prev)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -63,6 +67,7 @@ const Login = () => {
         <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
 
         <form className="form" onSubmit={handleSubmit}>
+        
           <label htmlFor="username">Username:</label>
           <input 
             id="username"
@@ -85,6 +90,18 @@ const Login = () => {
             required
           />
           <button className="form__submit-button">Sign In</button>
+
+          <label htmlFor="persist" className="form__persist">
+            <input 
+              id="persist"
+              className="form__checkbox"
+              type="checkbox"
+              onChange={handleToggle}
+              checked={persist}
+            />
+            Trust This Device
+          </label>
+
         </form>
       </main>
       <footer>

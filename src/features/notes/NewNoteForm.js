@@ -85,7 +85,7 @@ const NewNoteForm = ({ users }) => {
         </div>
 
         <label className="form__label" htmlFor="title">
-          Title: <span>[3-50 letters]</span>
+          Judul Pekerjaan: <span>[3-50 huruf]</span>
         </label>
         <input 
           id="title"
@@ -98,7 +98,7 @@ const NewNoteForm = ({ users }) => {
         />
 
         <label className="form__label" htmlFor="text">
-          Content:
+          Detail Pekerjaan:
         </label>
         <textarea 
           id="text"
@@ -109,7 +109,7 @@ const NewNoteForm = ({ users }) => {
         />
 
         <label htmlFor="username">
-          ASSIGNED USER:
+          Pilih Teknisi:
         </label>
         <select
           id="username"
