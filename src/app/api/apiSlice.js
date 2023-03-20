@@ -3,8 +3,8 @@ import { setCredentials } from '../../features/auth/authSlice'
 
 const baseQuery = fetchBaseQuery({
   // baseUrl: 'https://technotes-api-service.onrender.com',
-  baseUrl: 'https://api-technotes.cyclic.app/',
-  // baseUrl: 'https://api-technotes.syukri-hadi.com',
+  // baseUrl: 'https://api-technotes.cyclic.app/',
+  baseUrl: 'https://technotes-api.syukri-hadi.com',
   // baseUrl: 'http://localhost:8000',
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
